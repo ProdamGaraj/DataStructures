@@ -24,7 +24,7 @@ namespace DataStructures
             GetAllMinions(List);
             List.Add(minion0);
             GetAllMinions(List);
-            List.Add(minion1);
+            List.Add(minion1); 
             GetAllMinions(List);
             List.Add(minion2, 1);
             GetAllMinions(List);
@@ -34,7 +34,7 @@ namespace DataStructures
             GetAllMinions(List);
             List.Remove(minion0);
             GetAllMinions(List);
-            List.Remove(1);
+            List.Remove(1);      
             GetAllMinions(List);
             List.Edit(0, minionNew);
             GetAllMinions(List);

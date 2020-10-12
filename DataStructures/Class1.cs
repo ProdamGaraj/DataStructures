@@ -25,20 +25,24 @@ namespace DataStructures
             length++;
         }
 
-        public void Add(T data, int id)//Add to [id] place 
+        public bool Add(T data, int id)//Add to [id] place 
         {
             Node<T> node = new Node<T>(data);
             Node<T> current = head;
             int i = 0;
             if (id == 0)
             {
-                current.Previous = node;
-                node.Previous = null;
                 node.Next = current;
+                node.Previous = null;
+                current.Previous = node;
+                head = node;
+                length++;
+                return true;
             }
-            else
+            if (id == length) { Add(data); return true; }
+            if(id>0||id<length)
             {
-                while (i < id )
+                while (i < id)
                 {
                     current = current.Next;
                     i++;
@@ -48,7 +52,9 @@ namespace DataStructures
                 current.Previous = node;
                 node.Previous.Next = node;
                 length++;
+                return true;
             }
+            return false;
         }
 
         public void Remove(T data)//Remove by data.
@@ -73,11 +79,11 @@ namespace DataStructures
             }
         }
 
-        public void Remove(int id)//Remove by id
+        public bool Remove(int id)//Remove by id
         {
             Node<T> current = head;
-            int i = 1;
-            while (i < id )
+            int i = 0;
+            while (i < id)
             {
                 current = current.Next;
                 i++;
@@ -85,16 +91,20 @@ namespace DataStructures
             if (current.Previous == null)
             {
                 current.Next.Previous = null;
+                return true;
             }
             if (current.Next == null)
             {
                 current.Previous.Next = null;
+                return true;
             }
-            else
+            if(current.Next!=null||current.Previous!=null)
             {
                 current.Next.Previous = current.Previous;
                 current.Previous.Next = current.Next;
+                return true;
             }
+            return false;
         }
 
         public void Edit(T data, T newData)//Edit with new data by old data;
@@ -111,7 +121,7 @@ namespace DataStructures
         {
             int i = 0;
             Node<T> current = head;
-            while (i < id )
+            while (i < id)
             {
                 current = current.Next;
                 i++;
