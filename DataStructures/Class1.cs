@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataStructures
 {
-    class DoublyLinkedList<T>: IEnumerable<T>
+    class DoublyLinkedList<T> : IEnumerable<T>
     {
         Node<T> head;
         Node<T> tail;
@@ -76,8 +76,8 @@ namespace DataStructures
         public void Remove(int id)//Remove by id
         {
             Node<T> current = head;
-            int i = 0;
-            while (i < id)
+            int i = 1;
+            while (i < id )
             {
                 current = current.Next;
                 i++;
@@ -111,7 +111,7 @@ namespace DataStructures
         {
             int i = 0;
             Node<T> current = head;
-            while (i < id)
+            while (i < id )
             {
                 current = current.Next;
                 i++;
