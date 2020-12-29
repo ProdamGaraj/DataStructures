@@ -5,39 +5,38 @@ namespace DataStructures
 
     class Program
     {
-        public static void GetAllMinions(DoublyLinkedList<Minion> List)
+        public static void GetTrain(DoublyLinkedList<Vagon> Train)
         {
-            foreach (Minion i in List)
+            foreach (Vagon i in Train)
             {
-                i.GetMinion(i);
+                i.GetVagon(i);
             }
             Console.WriteLine();
         }
         static void Main(string[] args)
         {
-            DoublyLinkedList<Minion> List = new DoublyLinkedList<Minion>();
-            Minion minion0 = new Minion(0, "Vasya", 2);
-            Minion minion1 = new Minion(1, "Grisha", 23);
-            Minion minion2 = new Minion(2, "Maksim", 93);
-            Minion minion3 = new Minion(3, "Alex", 19);
-            Minion minionNew = new Minion(4, "Temp", 9);
-            GetAllMinions(List);
-            List.Add(minion0);
-            GetAllMinions(List);
-            List.Add(minion1); 
-            GetAllMinions(List);
-            List.Add(minion2, 1);
-            GetAllMinions(List);
-            List.Add(minion3, 0);
-            GetAllMinions(List);
-            List.Remove(minion1);
-            GetAllMinions(List);
-            List.Remove(minion0);
-            GetAllMinions(List);
-            List.Remove(1);      
-            GetAllMinions(List);
-            List.Edit(0, minionNew);
-            GetAllMinions(List);
+            DoublyLinkedList<Vagon> Train = new DoublyLinkedList<Vagon>();
+
+            Vagon vagon0 = new Vagon(0, 10, 15);
+            Vagon vagon1 = new Vagon(1, 15, 15);
+            Vagon vagon2 = new Vagon(2, 20, 15);
+            Vagon vagon3 = new Vagon(3, 25, 15);
+
+            GetTrain(Train);
+            Train.Add(vagon0);
+            GetTrain(Train);
+            Train.Add(vagon1);
+            GetTrain(Train);
+            Train.Add(vagon2);
+            GetTrain(Train);
+            Train.Add(vagon3, 0);
+            GetTrain(Train);
+            Train.Remove(vagon1);
+            GetTrain(Train);
+            Train.Remove(1);
+            GetTrain(Train);
+            Train.Edit(0, new Vagon(4, 120, 12));
+            GetTrain(Train);
         }
     }
 }
